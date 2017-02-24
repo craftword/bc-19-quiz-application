@@ -18,13 +18,49 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="css/all-skins.min.css">
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<!-- jQuery 2.1.4 -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDa4MXTByQGffWNQU45pW3qNKHz_WeAWrQ",
+    authDomain: "bc-19-quiz-app.firebaseapp.com",
+    databaseURL: "https://bc-19-quiz-app.firebaseio.com",
+    storageBucket: "bc-19-quiz-app.appspot.com",
+    messagingSenderId: "826087915451"
+  };
+  firebase.initializeApp(config);
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  database = firebase.database();
+
+  var ref = database.ref("Score");
+  ref.on('value', getData, errData);
+
+  function getData (data) {
+    //console.log(data.val());
+    var scores = data.val();
+    var keys = Object.keys(scores);
+    console.log(keys);
+    for (var i=0; i <= keys.length; i++) {
+     var k = keys[i];
+     var fullname = scores[k].fullname;
+     var total = scores[k].Total;
+
+     $("#scorelist").append("<tr><td>" + keys[i + 1] + "</td><td>" + fullname + "</td><td>" + total + "</td></tr>");
+     
+
+    }
+  }
+
+  function errData () {
+    console.log('Error');
+    console.log(err);
+  }
+  
+  
+</script>
+   
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body class="hold-transition skin-blue layout-top-nav">
@@ -61,9 +97,9 @@
                     <!-- Menu Toggle Button -->
                     <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
                       <!-- The user image in the navbar-->
-                      <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                     <img src="images/christy.png" class="user-image" alt="User Image">
                       <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                      <span class="hidden-xs">Alexander Pierce</span>
+                      <span class="hidden-xs">Christiana Essien</span>
                     </a>
                       
                 </ul>
@@ -106,33 +142,9 @@
                         <th>Score </th>                        
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Abimbola olaitan</td>
-                        <td>345</td>
-                       </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Christy Ogonna</td>
-                        <td>320</td>
-                        
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Bola Munis</td>
-                        <td>260</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>Omotola Hobson</td>
-                        <td>220</td>
-                        </tr>
-                      <tr>
-                        <td>5</td>
-                        <td>Zogo Smith</td>
-                        <td>100</td>
-                       </tr>
+                    <tbody id="scorelist">
+                      
+                      
                      </tbody>
                     </table>
 
@@ -151,16 +163,10 @@
       </footer>
     </div><!-- ./wrapper -->
 
-    <!-- jQuery 2.1.4 -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-   <!-- Latest compiled and minified JavaScript -->
+  <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
-    <!-- SlimScroll -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.min.js"></script>
-     <!-- DataTables -->
+    <!-- DataTables -->
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
      <!-- page script -->
