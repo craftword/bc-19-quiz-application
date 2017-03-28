@@ -9,28 +9,15 @@
     <!-- Latest compiled and minified CSS -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Theme style -->
+     <!-- Theme style -->
     <link rel="stylesheet" href="css/main.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/all-skins.min.css">
-   
-<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+
 <!-- jQuery 2.1.4 -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDa4MXTByQGffWNQU45pW3qNKHz_WeAWrQ",
-    authDomain: "bc-19-quiz-app.firebaseapp.com",
-    databaseURL: "https://bc-19-quiz-app.firebaseio.com",
-    storageBucket: "bc-19-quiz-app.appspot.com",
-    messagingSenderId: "826087915451"
-  };
-  firebase.initializeApp(config);
-</script>
+
    
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
@@ -65,7 +52,7 @@
         
         <h3 align="center"> SIGN UP WITH EMAIL</h3>
         <hr />
-          <form>
+          <form id="register">
             <div class="input-group form-group">
               <span class="input-group-addon"><i class='fa fa-envelope'></i></span>
               <input type="text" class="form-control" placeholder="Username" id="email">
@@ -86,7 +73,7 @@
 
 
             <div class="form-group">
-              <button type="submit" class="btn  btn-block  btn-submit pull-right" onclick="createUsersProfile()">Submit</button>
+              <button type="submit" class="btn  btn-block  btn-submit pull-right">Submit </button>
             </div>
           </div>
          </form>
@@ -95,7 +82,7 @@
         <!-- col -->
       </div>
       <!-- row -->
-      <p>&nbsp;&nbsp; </p> 
+             <p>&nbsp;&nbsp; </p> 
              <p>&nbsp;&nbsp; </p> 
              <p>&nbsp;&nbsp; </p> 
              <p>&nbsp;&nbsp; </p> 
@@ -119,19 +106,44 @@
    <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
-    <!-- SlimScroll -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- FastClick -->
-    <script src="plugins/fastclick/fastclick.min.js"></script>
-    <script>
-    var email = $("#email").val().trim();
-    var password = $("#password").val().trim();
-    var fullname = $("#fullname").val().trim();
-    var phone = $("#phone").val().trim();
-    var obj = {"email": email, "password":password, "fullname":fullname, "phone": phone}
-    function createUsersProfile() { 
-     console.log(obj);
-   }
+<script>
+   $(document).ready(function(){
+     $("form").on('submit', function (e) {
+    e.preventDefault();     
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var fullname = document.getElementById("fullname").value;
+    var phone = document.getElementById("phone").value;
+    var uId = email.substring(0, email.indexOf("@"));
+    var url = "https://bc-19-quiz-app.firebaseio.com/users/" + uId + ".json";
+    var obj = {
+               
+              "Email": email,
+              "Password" : password,
+              "Phone" : phone,
+              "Subject" : {"English" : { "Total" : 0 }},
+              "fullname" : fullname
+                
+             };
+    $.ajax({
+      method: 'PUT',
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: JSON.stringify(obj),
+      url: url
+      })
+     .done((data)=> {
+      sessionStorage.myName = fullname;
+      sessionStorage.myUid  = uId;
+        document.location.href = '/andelaQuiz/question.html';
+     })
+     //console.log(JSON.stringify(obj));
+     
+   
+   });
+
+ }); 
+
     </script>
     
     

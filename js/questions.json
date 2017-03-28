@@ -1,58 +1,61 @@
 
-var English = [
+
+ const English = [
   {
-    "question"  : " 1. Our government is making determined efforts to eradicate illiteracy.",
-     "choice"   : ["compulsory","ineffective", "innocent", "unreliable"],                  
-     "correct"  : 2
+    "question"  : "Our government is making determined efforts to eradicate illiteracy.",
+     "choice"  : ["compulsory","ineffective", "innocent", "unreliable"],                  
+     "correct"  : 1
   },
   
   {
-    "question"  : "2. Makerere University has a large intake of students each year",
+    "question"  : "Makerere University has a large intake of students each year",
      "choice"   : ["rejection", "product",  "output",  "turn-out"],                       
+     "correct"  : 0
+  },
+  
+  {
+    "question"  : "Florence flogged the girl reluctantly.",
+     "choice"   : ["eagerly", "calmly", "furiously", "laboriously"],                         
      "correct"  : 1
   },
   
   {
-    "question"  : "3. Florence flogged the girl reluctantly.",
-     "choice "  : ["eagerly", "calmly", "furiously", "laboriously"],                         
-     "correct"  : 2
-  },
-  
-  {
-    "question"  : "4. Sola’s car is badly damaged; he has to look for an expert mechanic to fix it.",
+    "question"  : "Sola’s car is badly damaged; he has to look for an expert mechanic to fix it.",
      "choice"   : ["uneducated", "amateurish", "awkward",  "unscientific"],                         
-     "correct"  : 2
+     "correct"  : 1
   },
   
   {
-    "question"  : "5. Coastal plains are often very densely populated.",
+    "question"  : "Coastal plains are often very densely populated.",
      "choice"   : ["weakly", "badly", "rarely", "sparsely"],                        
-     "correct"  : 4
-  },
-  {
-    "question"  : "6. Wilfredwas a mindless criminal.",
-     "choice"   :  ["strong", "mindful", "feeling",  "memorable"],                      
      "correct"  : 3
   },
   {
-    "question"  : "7. The judge blamed the plaintiff for misleading the court.",
+    "question"  : "Wilfredwas a mindless criminal.",
+     "choice"  : ["strong", "mindful", "feeling",  "memorable"],                      
+     "correct"  : 2
+  },
+  {
+    "question"  : "The judge blamed the plaintiff for misleading the court.",
      "choice"   : ["defendant",  "complainant",  "accused",  "prosecution"],                        
-     "correct"  : 1
+     "correct"  : 0
   },
   {
-    "question"  : "8. The thieves vandalized the vault’s lock.",
-     "choice"   : ["repaired",  "arranged", "serviced",  "actuated"],                        
-     "correct"  : 1
+    "question"  : "The thieves vandalized the vault’s lock.",
+     "choice"  : ["repaired",  "arranged", "serviced",  "actuated"],                        
+     "correct"  : 0
   },
   {
-    "question"  : "9. The demonstrators have refused to call off their action.",
-     "choice"   : ["consolidate", "start", "resume", "end"],                     
-     "correct"  : 3
+    "question"  : "The demonstrators have refused to call off their action.",
+     "choice"  : ["consolidate", "start", "resume", "end"],                     
+     "correct"  : 2
   },
   {
-    "question"  : "10. The angry waves swallowed the boat.",
+    "question"  : "The angry waves swallowed the boat.",
      "choice"   : ["gentle", "unruffled",  "cool",  "serene"],   
-     "correct"  : 4
+     "correct"  : 3
   }
   
-]
+ ]
+
+
