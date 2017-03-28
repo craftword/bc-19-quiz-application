@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/layout.css">  
-   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> 
-   <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/layout.css">
+     <!-- jQuery 2.1.4 -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+     
+    <script src="js/main.js"></script>
   </head>
   <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
   <body class="hold-transition skin-blue layout-top-nav">
@@ -35,8 +37,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
               <ul class="nav navbar-nav">
-                <li><a href="question.html" >Questions <span class="sr-only">(current)</span></a></li>
-                <li class="active"><a href="leaderboard.html">Leaderboard</a></li>
+                <li class="active"><a href="question.html" >Questions <span class="sr-only">(current)</span></a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
               </ul>
               
             </div><!-- /.navbar-collapse -->
@@ -54,7 +56,7 @@
                     </a>
                   </li>
                   <li>
-                    <a href="#" id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i> SignOut </a>  
+                    <a id="signout"><i class="fa fa-sign-out" aria-hidden="true"></i> SignOut </a>  
                   </li>
                     
                 </ul>
@@ -68,41 +70,62 @@
           <!-- Content Header (Page header) -->
           <section class="content-header">
             <h1>
-              leaderboard              
+              Questions               
             </h1>
             
           </section>
- <!-- Main content -->
+
+          <!-- Main content -->
           <section class="content">
             <div class="callout callout-info">
               <h4>Tip!</h4>
-              <p>Check your rank among the best</p>
+              <p> <strong>Welcome to JAMB QUIZ APPLICATION:</strong> To start, select a subject below, Note that the quiz is time as in the real JAMB CBT exam. You can only take One subject at a time. Check the leaderbaord for rank among other applicants. </p>
             </div>
             
             <div class="box box-default">
               <div class="box-header with-border">
-                <h3 class="box-title">Leaderboard</h3>
+                <h3 class="box-title">Subjects </h3>
               </div>
               <div class="box-body">
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                      <tr>
-                        <th>Rank</th>
-                        <th>Fullname</th>
-                        <th>Score </th>                        
-                      </tr>
-                    </thead>
-                    <tbody id="scorelist">
-                      
-                      
-                     </tbody>
-                    </table>
+                 <!-- Small boxes (Stat box) -->
+              <div class="row">&nbsp; &nbsp; &nbsp; </div>
+          <div class="row">
+            <div class=" col-lg-offset-2 col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject1" value="-KfvRRv2Ed1RZMM6lg4M/English">ENGLISH</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="Mathematics">MATHEMATICS</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="-KfvRj9MXdk9jnfrh3dj/Chemistry">CHEMISTRY</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="-KfvR7E6vc77JAaXtF-u/Physics">PHYSICS</button>
+            </div>
+          </div><!-- /.row1 -->
+         <div class="row">&nbsp; &nbsp; &nbsp; </div>
+          <div class="row">
+            <div class=" col-lg-offset-2 col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="Economics">ECONOMICS</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="Commerce">COMMERCE</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="Government">GOVERNMENT</button>
+            </div><!-- ./col -->
+            <div class="col-lg-2 col-xs-6">
+              <button type="button" class="btn btn-primary btn-block" id="subject" value="-KfvQXclqNHe3nyE4e5j/Biology">BIOLOGY</button>
+          </div><!-- /.row2 -->
 
-              </div><!-- /.box-body -->
+
+              </div><!-- /.box-body --> 
             </div><!-- /.box -->
           </section><!-- /.content -->
         </div><!-- /.container -->
+        <div class="row">&nbsp; &nbsp; &nbsp; </div>
       </div><!-- /.content-wrapper -->
+
       <footer class="main-footer">
         <div class="container">
           <div class="pull-right hidden-xs">
@@ -113,48 +136,10 @@
       </footer>
     </div><!-- ./wrapper -->
 
-  <!-- Latest compiled and minified JavaScript -->
+   
+   <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
-    <!-- DataTables -->
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-     <!-- page script -->
-    <script>
-      $(function () {
-        var refUrl = "https://bc-19-quiz-app.firebaseio.com/users.json";
-        var uId = sessionStorage.myUid;
-
-        $('#example2').DataTable({
-          "paging": true,
-          "lengthChange": false,
-          "searching": false,
-          "ordering": true,
-          "info": true,
-          "autoWidth": false
-        });
-      
-       $.get(refUrl, function(data, status){
-
-        var count = 1;
-          $.each(data, function( key, value ) {
-                console.log(value.Subject);
-          qElement = "<tr><td>"+ count + "</td><td>"+value.fullname+"</td>";
-               var total = 0;
-                 $.each( value.Subject, function( key, value) {
-                      total = total + value.Total;                      
-                     });
-            qElement += "<td>" +total+ "</td><tr>";
-                            
-           $("#scorelist").append(qElement);
-                count++;
-
-
-                             });
-       
-         });
-
-      });
-    </script>
+    
   </body>
 </html>
