@@ -1,0 +1,15 @@
+{
+  "name": "bc-19-quiz-app",
+  "version": "1.0.0",
+  "description": "Basic JavaScript project for demonstration of programming concepts",
+  
+  "scripts": {
+    "test": "index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/craftword/bc-19-quiz-application.git"
+  }
+  
+  
+}
